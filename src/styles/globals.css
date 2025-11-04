@@ -1,0 +1,33 @@
+:root {
+  /* Color palette */
+  --white: #fff;
+  --black: #000;
+  --background: var(--white);
+  --foreground: var(--black);
+
+  /* Spacing scale */
+  --spacing-size-xs: 4px;
+  --spacing-size-sm: 8px;
+  --spacing-size-md: 16px;
+  --spacing-size-lg: 24px;
+  --spacing-size-xl: 32px;
+
+  /* Font sizes */
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+}
+
+[data-theme="dark"] {
+  --background: var(--black);
+  --foreground: var(--white);
+}
+
+.docs-story {
+  background-color: var(--background);
+}

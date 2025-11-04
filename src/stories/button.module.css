@@ -1,0 +1,14 @@
+.root {
+  display: inline-block;
+  cursor: pointer;
+  padding: var(--spacing-size-xs) var(--spacing-size-md);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--border-radius-sm);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
