@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { FC } from "react";
 import styles from "./button.module.css";
 import classNames from "classnames";
 
@@ -9,7 +9,7 @@ namespace Button {
 }
 
 /** Primary UI component for user interaction */
-export const Button: FC<Button.Props & PropsWithChildren> = ({
+export const Button: FC<Button.Props> = ({
   children,
   secondary = false,
   ...props
