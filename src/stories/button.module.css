@@ -1,14 +1,25 @@
 .root {
   display: inline-block;
   cursor: pointer;
-  padding: var(--spacing-size-xs) var(--spacing-size-md);
-  background-color: var(--background);
-  color: var(--foreground);
+  padding: var(--spacing-size-sm) var(--spacing-size-md);
+  color: var(--text);
   font-size: 1rem;
-  border: none;
+  font-weight: 600;
   border-radius: var(--border-radius-sm);
 
   &:hover {
     opacity: 0.8;
   }
+}
+
+.primary {
+  background-color: var(--text);
+  color: var(--background-light);
+  border: solid 1px var(--text);
+}
+
+.secondary {
+  background-color: var(--background-light);
+  color: var(--text);
+  border: solid 1px var(--text-muted);
 }

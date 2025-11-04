@@ -1,21 +1,29 @@
+import { FC, PropsWithChildren } from "react";
 import styles from "./button.module.css";
+import classNames from "classnames";
 
-export interface ButtonProps {
-  /** What background color to use */
-  backgroundColor?: string;
-  /** Button contents */
-  label: string;
-  /** Optional click handler */
-  onClick?: () => void;
-  /** Is this the principal call to action on the page? */
-  secondary?: boolean;
+namespace Button {
+  export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    secondary?: boolean;
+  }
 }
 
 /** Primary UI component for user interaction */
-export const Button = ({ label, ...props }: ButtonProps) => {
+export const Button: FC<Button.Props & PropsWithChildren> = ({
+  children,
+  secondary = false,
+  ...props
+}) => {
   return (
-    <button type="button" className={styles.root} {...props}>
-      {label}
+    <button
+      type="button"
+      className={classNames(
+        styles.root,
+        secondary ? styles.secondary : styles.primary
+      )}
+      {...props}
+    >
+      {children}
     </button>
   );
 };
