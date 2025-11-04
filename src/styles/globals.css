@@ -1,9 +1,10 @@
 :root {
   /* Color palette */
-  --white: #fff;
-  --black: #000;
-  --background: var(--white);
-  --foreground: var(--black);
+  --background-dark: hsl(0 0% 90%);
+  --background: hsl(0 0% 95%);
+  --background-light: hsl(0 0% 100%);
+  --text: hsl(0 0% 5%);
+  --text-muted: hsl(0 0% 30%);
 
   /* Spacing scale */
   --spacing-size-xs: 4px;
@@ -24,8 +25,11 @@
 }
 
 [data-theme="dark"] {
-  --background: var(--black);
-  --foreground: var(--white);
+  --background-dark: hsl(0 0% 0%);
+  --background: hsl(0 0% 10%);
+  --background-light: hsl(0 0% 20%);
+  --text: hsl(0 0% 95%);
+  --text-muted: hsl(0 0% 70%);
 }
 
 .docs-story {
