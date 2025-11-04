@@ -27,6 +27,6 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     children: "Button",
-    secondary: true,
+    variant: "secondary",
   },
 };

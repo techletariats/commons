@@ -4,14 +4,14 @@ import classNames from "classnames";
 
 namespace Button {
   export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    secondary?: boolean;
+    variant?: "primary" | "secondary";
   }
 }
 
 /** Primary UI component for user interaction */
 export const Button: FC<Button.Props> = ({
   children,
-  secondary = false,
+  variant = "primary",
   ...props
 }) => {
   return (
@@ -19,7 +19,8 @@ export const Button: FC<Button.Props> = ({
       type="button"
       className={classNames(
         styles.root,
-        secondary ? styles.secondary : styles.primary
+        variant === "primary" && styles.primary,
+        variant === "secondary" && styles.secondary
       )}
       {...props}
     >
