@@ -4,6 +4,7 @@ import "../src/styles/globals.css";
 import "./style.css";
 import { FC, PropsWithChildren, useEffect } from "react";
 import { Renderer, StoryContext } from "storybook/internal/types";
+import { Theme } from "@/types";
 
 const ExampleContainer: FC<
   PropsWithChildren & { context: DocsContextProps<Renderer> }
@@ -13,7 +14,7 @@ const ExampleContainer: FC<
   </DocsContainer>
 );
 
-const WithTheme: FC<{ theme: string; children: React.ReactNode }> = ({
+const WithTheme: FC<{ theme: Theme; children: React.ReactNode }> = ({
   theme,
   children,
 }) => {
@@ -27,7 +28,7 @@ const WithTheme: FC<{ theme: string; children: React.ReactNode }> = ({
 
 const withTheme = (
   Story: FC,
-  { globals: { theme = "auto" } }: StoryContext
+  { globals: { theme = "light" as Theme } }: StoryContext
 ) => (
   <WithTheme theme={theme}>
     <Story />
@@ -44,8 +45,8 @@ const preview: Preview = {
         title: "Theme",
         icon: "paintbrush",
         items: [
-          { value: "light", title: "Light", icon: "sun" },
-          { value: "dark", title: "Dark", icon: "moon" },
+          { value: "light" as Theme, title: "Light", icon: "sun" },
+          { value: "dark" as Theme, title: "Dark", icon: "moon" },
         ],
         dynamicTitle: true,
       },

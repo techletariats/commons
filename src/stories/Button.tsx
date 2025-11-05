@@ -1,10 +1,11 @@
 import { FC } from "react";
 import styles from "./button.module.css";
 import classNames from "classnames";
+import { Variant } from "@/types";
 
 namespace Button {
   export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: "primary" | "secondary";
+    variant?: Variant;
   }
 }
 
