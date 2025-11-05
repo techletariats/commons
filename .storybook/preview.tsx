@@ -7,37 +7,32 @@ import { Renderer, StoryContext } from "storybook/internal/types";
 
 const ExampleContainer: FC<
   PropsWithChildren & { context: DocsContextProps<Renderer> }
-> = ({ children, ...props }) => {
-  return (
-    <DocsContainer {...props}>
-      <div id="docs-root">{children}</div>
-    </DocsContainer>
-  );
-};
+> = ({ children, ...props }) => (
+  <DocsContainer {...props}>
+    <div id="docs-root">{children}</div>
+  </DocsContainer>
+);
 
 const WithTheme: FC<{ theme: string; children: React.ReactNode }> = ({
   theme,
   children,
 }) => {
   useEffect(() => {
-    const docsRoot = document.getElementById("docs-root");
-    if (docsRoot) {
-      docsRoot.setAttribute("data-theme", theme);
-    }
+    document.documentElement.setAttribute("data-theme", theme);
+    document.body.setAttribute("data-theme", theme);
   }, [theme]);
 
   return <div data-theme={theme}>{children}</div>;
 };
 
-const withTheme = (Story: FC, context: StoryContext) => {
-  const theme = context.globals.theme || "auto";
-
-  return (
-    <WithTheme theme={theme}>
-      <Story />
-    </WithTheme>
-  );
-};
+const withTheme = (
+  Story: FC,
+  { globals: { theme = "auto" } }: StoryContext
+) => (
+  <WithTheme theme={theme}>
+    <Story />
+  </WithTheme>
+);
 
 const preview: Preview = {
   decorators: [withTheme],

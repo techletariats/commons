@@ -31,7 +31,3 @@
   --text: hsl(0 0% 95%);
   --text-muted: hsl(0 0% 70%);
 }
-
-.docs-story {
-  background-color: var(--background);
-}
