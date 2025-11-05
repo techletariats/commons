@@ -11,7 +11,15 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  args: { onClick: fn() },
+  argTypes: {
+    variant: {
+      control: "select",
+      options: ["primary", "secondary"],
+    },
+  },
+  args: {
+    onClick: fn(),
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -20,13 +28,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: "Button",
+    children: "Join Organization",
+    variant: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: "Button",
+    children: "Learn More About Organization",
     variant: "secondary",
   },
 };
