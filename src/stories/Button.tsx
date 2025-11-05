@@ -8,7 +8,6 @@ namespace Button {
   }
 }
 
-/** Primary UI component for user interaction */
 export const Button: FC<Button.Props> = ({
   children,
   variant = "primary",
@@ -17,11 +16,7 @@ export const Button: FC<Button.Props> = ({
   return (
     <button
       type="button"
-      className={classNames(
-        styles.root,
-        variant === "primary" && styles.primary,
-        variant === "secondary" && styles.secondary
-      )}
+      className={classNames(styles.root, styles[variant])}
       {...props}
     >
       {children}
