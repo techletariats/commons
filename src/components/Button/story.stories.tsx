@@ -14,9 +14,9 @@ const meta = {
   argTypes: {
     onClick: {
       table: {
-        disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
   args: {
     children: "Join Organization",
@@ -33,7 +33,7 @@ const meta = {
     await step("Has Text", async () => {
       await canvas.findByText(children);
     });
-  }
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -43,18 +43,18 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     variant: "primary",
-  }
+  },
 };
 
 export const Secondary: Story = {
   args: {
     variant: "secondary",
-  }
+  },
 };
 
 export const Disabled: Story = {
   args: {
-    disabled: true
+    disabled: true,
   },
   play: async (context) => {
     const { canvas, step, args } = context;
@@ -69,5 +69,5 @@ export const Disabled: Story = {
 
       await expect(onClick).not.toHaveBeenCalled();
     });
-  }
+  },
 };

@@ -1,28 +1,37 @@
-import { ButtonHTMLAttributes, FC } from "react";
-import { Variant } from "@/types";
 import styles from "./style.module.css";
 import classNames from "classnames";
+import { Variant } from "@/types";
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
-export namespace Button {
-  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
-    children: string;
-    variant?: Variant;
-  }
+namespace Button {
+  export type Props = { variant?: Variant; children: string } & (
+    | ({
+        as?: "button";
+      } & ButtonHTMLAttributes<HTMLButtonElement>)
+    | ({
+        as: "a";
+      } & AnchorHTMLAttributes<HTMLAnchorElement>)
+  );
 }
 
-export const Button: FC<Button.Props> = ({
+export const Button = ({
   children,
   variant = "primary",
-  type = "button",
+  as = "button",
   ...props
-}) => {
-  return (
+}: Button.Props) =>
+  as === "a" ? (
+    <a
+      className={classNames(styles.Button, styles[variant])}
+      {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
+    >
+      {children}
+    </a>
+  ) : (
     <button
       className={classNames(styles.Button, styles[variant])}
-      type={type}
-      {...props}
+      {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
     >
       {children}
     </button>
   );
-};
