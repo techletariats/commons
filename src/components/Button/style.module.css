@@ -11,7 +11,8 @@
   font-family: inherit;
 }
 
-.Button:disabled {
+.Button:disabled,
+.Button[disabled] {
   background-color: var(--background);
   color: var(--text-disabled);
   border-style: dashed;
