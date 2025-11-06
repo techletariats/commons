@@ -5,6 +5,7 @@
   --background-light: hsl(0 0% 100%);
   --text: hsl(0 0% 5%);
   --text-muted: hsl(0 0% 30%);
+  --text-disabled: hsl(0, 0%, 50%);
 
   /* Spacing scale */
   --spacing-size-xs: 4px;
@@ -30,8 +31,4 @@
   --background-light: hsl(0 0% 20%);
   --text: hsl(0 0% 95%);
   --text-muted: hsl(0 0% 70%);
-}
-
-.docs-story {
-  background-color: var(--background);
 }

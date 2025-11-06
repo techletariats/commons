@@ -1,0 +1,32 @@
+.Button {
+  display: inline-block;
+  cursor: pointer;
+  padding: var(--spacing-size-sm) var(--spacing-size-md);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  border-width: 1px;
+  border-style: solid;
+  font-family: inherit;
+}
+
+.Button:disabled,
+.Button[disabled] {
+  background-color: var(--background);
+  color: var(--text-disabled);
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+.primary {
+  background-color: var(--text);
+  color: var(--background-light);
+  border-color: var(--text);
+}
+
+.secondary {
+  background-color: var(--background-light);
+  color: var(--text);
+  border-color: var(--text-muted);
+}

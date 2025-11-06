@@ -4,40 +4,36 @@ import "../src/styles/globals.css";
 import "./style.css";
 import { FC, PropsWithChildren, useEffect } from "react";
 import { Renderer, StoryContext } from "storybook/internal/types";
+import { Theme } from "@/types";
 
 const ExampleContainer: FC<
   PropsWithChildren & { context: DocsContextProps<Renderer> }
-> = ({ children, ...props }) => {
-  return (
-    <DocsContainer {...props}>
-      <div id="docs-root">{children}</div>
-    </DocsContainer>
-  );
-};
+> = ({ children, ...props }) => (
+  <DocsContainer {...props}>
+    <div id="docs-root">{children}</div>
+  </DocsContainer>
+);
 
-const WithTheme: FC<{ theme: string; children: React.ReactNode }> = ({
+const WithTheme: FC<{ theme: Theme; children: React.ReactNode }> = ({
   theme,
   children,
 }) => {
   useEffect(() => {
-    const docsRoot = document.getElementById("docs-root");
-    if (docsRoot) {
-      docsRoot.setAttribute("data-theme", theme);
-    }
+    document.documentElement.setAttribute("data-theme", theme);
+    document.body.setAttribute("data-theme", theme);
   }, [theme]);
 
   return <div data-theme={theme}>{children}</div>;
 };
 
-const withTheme = (Story: FC, context: StoryContext) => {
-  const theme = context.globals.theme || "auto";
-
-  return (
-    <WithTheme theme={theme}>
-      <Story />
-    </WithTheme>
-  );
-};
+const withTheme = (
+  Story: FC,
+  { globals: { theme = "light" as Theme } }: StoryContext
+) => (
+  <WithTheme theme={theme}>
+    <Story />
+  </WithTheme>
+);
 
 const preview: Preview = {
   decorators: [withTheme],
@@ -49,8 +45,8 @@ const preview: Preview = {
         title: "Theme",
         icon: "paintbrush",
         items: [
-          { value: "light", title: "Light", icon: "sun" },
-          { value: "dark", title: "Dark", icon: "moon" },
+          { value: "light" as Theme, title: "Light", icon: "sun" },
+          { value: "dark" as Theme, title: "Dark", icon: "moon" },
         ],
         dynamicTitle: true,
       },
