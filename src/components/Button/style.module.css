@@ -6,7 +6,7 @@
   font-size: 1rem;
   font-weight: 600;
   border-radius: var(--border-radius-sm);
-  border-style: solid;
+  border: outset 2px buttonface;
   font-family: inherit;
 }
 
