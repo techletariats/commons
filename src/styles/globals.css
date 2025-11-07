@@ -56,5 +56,10 @@
 .focus-outline:focus {
   outline: 2px solid var(--text);
   outline-offset: 2px;
-  animation: focusPulse 1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .focus-outline:focus {
+    animation: focusPulse 1s ease-in-out infinite;
+  }
 }
