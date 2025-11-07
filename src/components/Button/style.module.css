@@ -6,27 +6,31 @@
   font-size: 1rem;
   font-weight: 600;
   border-radius: var(--border-radius-sm);
-  border-width: 1px;
   border-style: solid;
   font-family: inherit;
 }
 
 .Button:disabled,
 .Button[disabled] {
-  background-color: var(--background);
+  background: linear-gradient(180deg, var(--background) 0%, var(--background-dark) 100%);
   color: var(--text-disabled);
-  border-style: dashed;
   cursor: not-allowed;
 }
 
 .primary {
-  background-color: var(--text);
+  background: linear-gradient(180deg, var(--text) 0%, var(--text-muted) 100%);
   color: var(--background-light);
-  border-color: var(--text);
+
+  &:active:not(:disabled):not([disabled]) {
+    background: linear-gradient(180deg, var(--text-muted) 0%, var(--text) 100%);
+  }
 }
 
 .secondary {
-  background-color: var(--background-light);
+  background: linear-gradient(180deg, var(--background-light) 0%, var(--background) 100%);
   color: var(--text);
-  border-color: var(--text-muted);
+
+  &:active:not(:disabled):not([disabled]) {
+    background: linear-gradient(180deg, var(--background) 0%, var(--background-light) 100%);
+  }
 }

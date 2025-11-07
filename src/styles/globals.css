@@ -6,6 +6,8 @@
   --text: hsl(0 0% 5%);
   --text-muted: hsl(0 0% 30%);
   --text-disabled: hsl(0, 0%, 50%);
+  --white: hsl(0 0% 100%);
+  --black: hsl(0 0% 0%);
 
   /* Spacing scale */
   --spacing-size-xs: 4px;
@@ -31,4 +33,28 @@
   --background-light: hsl(0 0% 20%);
   --text: hsl(0 0% 95%);
   --text-muted: hsl(0 0% 70%);
+}
+
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@keyframes focusPulse {
+
+  0%,
+  100% {
+    outline-offset: 2px;
+  }
+
+  50% {
+    outline-offset: 4px;
+  }
+}
+
+.focus-outline:focus {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+  animation: focusPulse 1s ease-in-out infinite;
 }

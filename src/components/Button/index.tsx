@@ -19,19 +19,21 @@ export const Button = ({
   variant = "primary",
   as = "button",
   ...props
-}: Button.Props) =>
-  as === "a" ? (
+}: Button.Props) => {
+  const className = classNames(styles.Button, styles[variant], 'prevent-select', 'focus-outline');
+  return as === "a" ? (
     <a
-      className={classNames(styles.Button, styles[variant])}
+      className={className}
       {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
     >
       {children}
     </a>
   ) : (
     <button
-      className={classNames(styles.Button, styles[variant])}
+      className={className}
       {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
     >
       {children}
     </button>
   );
+}
