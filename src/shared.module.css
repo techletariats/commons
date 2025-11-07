@@ -1,0 +1,27 @@
+.preventSelect {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@keyframes focusPulse {
+
+    0%,
+    100% {
+        outline-offset: 2px;
+    }
+
+    50% {
+        outline-offset: 4px;
+    }
+}
+
+.focusOutline:focus {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .focusOutline:focus {
+        animation: focusPulse 1s ease-in-out infinite;
+    }
+}
