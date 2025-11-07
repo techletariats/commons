@@ -8,6 +8,12 @@
   border-radius: var(--border-radius-sm);
   border: outset 2px buttonface;
   font-family: inherit;
+  background: linear-gradient(180deg, var(--text) 0%, var(--text-muted) 100%);
+  color: var(--background-light);
+
+  &:active:not(:disabled):not([disabled]) {
+    background: linear-gradient(180deg, var(--text-muted) 0%, var(--text) 100%);
+  }
 }
 
 .Button:disabled,
@@ -15,15 +21,7 @@
   background: linear-gradient(180deg, var(--background) 0%, var(--background-dark) 100%);
   color: var(--text-disabled);
   cursor: not-allowed;
-}
-
-.primary {
-  background: linear-gradient(180deg, var(--text) 0%, var(--text-muted) 100%);
-  color: var(--background-light);
-
-  &:active:not(:disabled):not([disabled]) {
-    background: linear-gradient(180deg, var(--text-muted) 0%, var(--text) 100%);
-  }
+  border-style: dashed;
 }
 
 .secondary {

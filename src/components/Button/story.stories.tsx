@@ -71,14 +71,3 @@ export const Disabled: Story = {
     });
   },
 };
-
-export const Focused: Story = {
-  args: {
-    autoFocus: true,
-  },
-  argTypes: {
-    autoFocus: {
-      control: "boolean",
-    },
-  },
-};
