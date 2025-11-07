@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/nextjs-vite";
 import { DocsContainer, DocsContextProps } from "@storybook/addon-docs/blocks";
-import "../src/styles/globals.css";
+import "../src/theme.css";
 import "./style.css";
 import { FC, PropsWithChildren, useEffect } from "react";
 import { Renderer, StoryContext } from "storybook/internal/types";

@@ -1,4 +1,5 @@
 import styles from "./style.module.css";
+import shared from "@/shared.module.css";
 import classNames from "classnames";
 import { Variant } from "@/types";
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
@@ -19,19 +20,21 @@ export const Button = ({
   variant = "primary",
   as = "button",
   ...props
-}: Button.Props) =>
-  as === "a" ? (
+}: Button.Props) => {
+  const className = classNames(styles.Button, styles[variant], shared.preventSelect, shared.focusOutline);
+  return as === "a" ? (
     <a
-      className={classNames(styles.Button, styles[variant])}
+      className={className}
       {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
     >
       {children}
     </a>
   ) : (
     <button
-      className={classNames(styles.Button, styles[variant])}
+      className={className}
       {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
     >
       {children}
     </button>
   );
+}
