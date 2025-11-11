@@ -9,7 +9,6 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {},
   args: {
     children: "Welcome Comrade",
   },
@@ -32,12 +31,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Heading1: Story = {};
+
 export const Heading2: Story = {
   args: { as: "h2" },
 };
+
 export const Heading3: Story = {
   args: { as: "h3" },
 };
+
 export const Heading4: Story = {
   args: { as: "h4" },
 };

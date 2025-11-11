@@ -9,11 +9,16 @@ namespace Heading {
   }
 }
 
-export const Heading = ({ children, as = "h1", ...props }: Heading.Props) => {
+export const Heading = ({
+  children,
+  as = "h1",
+  className: userClassName,
+  ...rest
+}: Heading.Props) => {
   const Element = as;
-  const className = classNames(styles.Heading);
+  const className = classNames(styles.Heading, userClassName);
   return (
-    <Element className={className} {...props}>
+    <Element className={className} {...rest}>
       {children}
     </Element>
   );
