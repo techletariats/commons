@@ -1,0 +1,51 @@
+{
+  "Component": {
+    "prefix": "!component",
+    "body": [
+      "import { BaseHTMLAttributes, FC } from 'react';",
+      "import classNames from 'classnames';",
+      "import styles from './style.module.css';",
+      "",
+      "export namespace $1 {",
+      "  export interface Props extends BaseHTMLAttributes<HTMLBaseElement> {},",
+      "}",
+      "",
+      "export const $1: FC<$1.Props> = ({",
+      "  children,",
+      "  ...props",
+      "}) => {",
+      "  return (",
+      "    <div",
+      "      className={classNames(styles.$1)}",
+      "      {...props}",
+      "    >",
+      "      {children}",
+      "    </div>",
+      "  );",
+      "};"
+    ]
+  },
+  "Story": {
+    "prefix": "!story",
+    "body": [
+      "import type { Meta, StoryObj } from '@storybook/nextjs-vite';",
+      "",
+      "import { $1 } from '.';",
+      "",
+      "const meta = {",
+      "  title: '$1',",
+      "  component: $1,",
+      "  parameters: {",
+      "    layout: 'centered',",
+      "  },",
+      "  tags: ['autodocs'],",
+      "} satisfies Meta<typeof $1>;",
+      "",
+      "export default meta;",
+      "",
+      "type Story = StoryObj<typeof meta>;",
+      "",
+      "export const Default: Story = {};"
+    ]
+  }
+}
