@@ -3,14 +3,7 @@ import classNames from "classnames";
 import { HTMLAttributes } from "react";
 
 namespace Text {
-  export type Props = { children: string } & (
-    | ({
-        as?: "p";
-      } & HTMLAttributes<HTMLParagraphElement>)
-    | ({
-        as: "span";
-      } & HTMLAttributes<HTMLSpanElement>)
-  );
+  export type Props = { children: string; as: 'p' | 'span' } & HTMLAttributes<HTMLParagraphElement | HTMLSpanElement>;
 }
 
 export const Text = ({
@@ -20,13 +13,10 @@ export const Text = ({
   ...rest
 }: Text.Props) => {
   const className = classNames(styles.Text, userClassName);
-  return as === "span" ? (
-    <span className={className} {...(rest as HTMLAttributes<HTMLSpanElement>)}>
+  const Element = as;
+  return (
+    <Element className={className} {...(rest as HTMLAttributes<HTMLSpanElement>)}>
       {children}
-    </span>
-  ) : (
-    <p className={className} {...(rest as HTMLAttributes<HTMLParagraphElement>)}>
-      {children}
-    </p>
-  );
+    </Element>
+  )
 };
